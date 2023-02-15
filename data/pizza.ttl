@@ -1,0 +1,18 @@
+@prefix ex:     <http://example.com/> .
+@prefix pizza:  <http://example.com/pizzas.owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Margherita
+ex:margherita rdf:type pizza:Pizza .
+ex:margherita rdf:type pizza:VegetarianPizza .
+ex:tomato pizza:isIngredientOf ex:margherita .
+ex:margherita pizza:hasIngredient ex:basilic .
+
+# Cheese Bacon
+ex:cheese_bacon rdf:type pizza:Pizza .
+ex:cheese_bacon rdf:type pizza:NonVegetarianPizza .
+ex:cheese pizza:isIngredientOf ex:cheese_bacon .
+ex:cheese_bacon pizza:hasIngredient ex:bacon .
+ex:cheese_bacon pizza:hasIngredient ex:tomato .
+
+
