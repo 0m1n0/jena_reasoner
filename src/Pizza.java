@@ -46,6 +46,8 @@ public class Pizza {
         // OWL inference
         Model schema = RDFDataMgr.loadModel(pizzaOntologyFileName) ;
         Reasoner reasoner = ReasonerRegistry.getOWLReasoner() ;
+        System.out.println( "\nBinding ontology schema" ) ;
+        System.out.println("    reasoner: " + reasoner);
         reasoner = reasoner.bindSchema(schema) ;
         // creates an inference model using the rules of reasoner over the raw model
         InfModel infmodel = ModelFactory.createInfModel(reasoner, model) ;

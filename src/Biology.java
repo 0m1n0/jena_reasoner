@@ -57,6 +57,7 @@ public class Biology {
         Model schema = RDFDataMgr.loadModel(biolinkOntologyFileName) ;
         Reasoner reasoner = ReasonerRegistry.getOWLReasoner() ;
         System.out.println( "\nBinding ontology schema" ) ;
+        System.out.println("    reasoner: " + reasoner);
         long startTime1 = System.nanoTime();
         reasoner = reasoner.bindSchema(schema) ;
         long endTime1 = System.nanoTime();
