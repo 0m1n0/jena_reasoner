@@ -1,0 +1,33 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:     <http://example.com/> .
+@prefix biolink: <https://w3id.org/biolink/vocab/> .
+
+########## Biolink Model ontology: has_catalyst <-> catalyzes ##########
+
+# reactionA <- enzymeA1
+ex:reactionA biolink:category biolink:MolecularActivity .
+ex:reactionA biolink:has_catalyst ex:enzymeA1 .
+
+# reactionB <- enzymeB1
+# enzymeB2 -> reactionB
+ex:reactionB biolink:category biolink:MolecularActivity .
+ex:reactionB biolink:has_catalyst ex:enzymeB1 .
+ex:enzymeB2 biolink:catalyzes ex:reactionB .
+
+# enzymeC1 -> reactionC
+# enzymeC2 -> reactionC
+ex:reactionC biolink:category biolink:MolecularActivity .
+ex:enzymeC1 biolink:catalyzes ex:reactionC .
+ex:enzymeC2 biolink:catalyzes ex:reactionC .
+
+########## Biolink Model ontology: participant: input/output ##########
+# has_input and has_output properties are sub-classes of has_participant property
+# has_input <-> is_input_of
+# has_output <-> is_output_of
+
+# reactionC -> compoundC1
+# compoundC2 -> reactionC
+ex:reactionC biolink:has_input ex:compoundC1 .
+ex:compoundC2 biolink:is_output_of ex:reactionC .
